@@ -1,0 +1,19 @@
+﻿@model List<KitapTuru>
+
+<h1> Kitap Türleri</h1>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>İd</th>
+			<th>Kitap Türleri</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var KitapTuru in Model){
+			<tr>
+				<td>@KitapTuru.Id</td>
+				<td>@KitapTuru.Ad</td>
+			</tr>
+		}
+	</tbody>
+</table>
