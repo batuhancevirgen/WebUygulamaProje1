@@ -1,16 +1,25 @@
 ﻿@model List<KitapTuru>
 
+@if(TempData["basarili"] != null)
+{
+	<h4 style="color:red">@TempData["basarili"]</h4>
+}
+@*Yapılan işlem hakkında mesaj vermek için TempData kullanılır*@
+
 <div class="container">
 	<div class="row pt-3 pb-4">
 		<div>
 			<h1> Kitap Türleri</h1>
 		</div>
 	</div>
-	<table class="table table-bordered">
+	<table class="table">
 		<thead>
 			<tr>
 				<th>İd</th>
 				<th>Kitap Türleri</th>
+				<th></th>
+				<th></th>
+
 			</tr>
 		</thead>
 		<tbody>
@@ -18,6 +27,12 @@
 				<tr>
 					<td>@KitapTuru.Id</td>
 					<td>@KitapTuru.Ad</td>
+					<td>
+						<a type="button" class="btn btn-success" style="width:250px" asp-controller="KitapTuru" asp-action="Guncelle" asp-route-id="@KitapTuru.Id">Güncelle</a>
+					</td> 
+					<td>
+						<a tpye="button" class="btn btn-danger" style="width:250px" asp-controller="KitapTuru" asp-action="Sil" asp-route-id="@KitapTuru.Id">Sil</a>
+					</td>
 				</tr>
 			}
 		</tbody>
