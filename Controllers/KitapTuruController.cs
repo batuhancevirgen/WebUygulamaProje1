@@ -25,9 +25,13 @@ namespace WebUygulamaProje1.Controllers
         [HttpPost]
         public IActionResult Ekle(KitapTuru kitapTuru)
         {
-            _uygulamaDbContext.KitapTurleri.Add(kitapTuru);
-            _uygulamaDbContext.SaveChanges();
-            return RedirectToAction("Index", "KitapTuru");
-        }
+            if (ModelState.IsValid)
+            {
+                _uygulamaDbContext.KitapTurleri.Add(kitapTuru);
+                _uygulamaDbContext.SaveChanges();
+                return RedirectToAction("Index", "KitapTuru");
+            }
+            return View();
+        }   
     }
 }
